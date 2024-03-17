@@ -69,7 +69,8 @@ export class MarkdownParser implements MarkdownParserInterface {
   private setParagraphs(text: string): string {
     return text
       .split(this.separator)
-      .reduce((acc, cur) => `${acc}\n<p>${cur}</p>`, '');
+      .reduce((acc, cur) => `${acc}<p>${cur}</p>\n`, '')
+      .trim();
   }
 
   private readFile(): string {
